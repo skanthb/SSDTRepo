@@ -5641,6 +5641,10 @@
           {
             "name": "InternetPreviousQuarterSalesProportionToQTD",
             "expression": "[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
+          },
+          {
+            "name": "InternetCurrentQuarterSalesPerformance",
+            "expression": "IFERROR([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())"
           }
         ],
         "annotations": [
