@@ -1257,6 +1257,7 @@
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isUnique": true,
             "isKey": true,
             "sourceColumn": "FullDateAlternateKey",
             "formatString": "General Date",
@@ -1744,10 +1745,6 @@
           {
             "name": "DaysInCurrentQuarter",
             "expression": "COUNTROWS( DATESBETWEEN( 'DimDate'[Date], STARTOFQUARTER( LASTDATE('DimDate'[Date])), ENDOFQUARTER('DimDate'[Date])))"
-          },
-          {
-            "name": "InternetPreviousQuarterMargin",
-            "expression": "CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))"
           }
         ],
         "annotations": [
@@ -5622,8 +5619,12 @@
             ]
           },
           {
+            "name": "InternetPreviousQuarterMargin",
+            "expression": "CALCULATE([InternetTotalMargin],PREVIOUSQUARTER(DimDate[Date]))"
+          },
+          {
             "name": "InternetCurrentQuarterMargin",
-            "expression": "TOTALQTD([InternetTotalMargin],'DimDate'[Date])"
+            "expression": "TOTALQTD([InternetTotalMargin],DimDate[Date])"
           },
           {
             "name": "InternetPreviousQuarterMarginProportionToQTD",
@@ -5631,19 +5632,15 @@
           },
           {
             "name": "InternetPreviousQuarterSales",
-            "expression": "CALCULATE([InternetTotalSales],PREVIOUSQUARTER('DimDate'[Date]))"
+            "expression": "CALCULATE([InternetTotalSales],PREVIOUSQUARTER(DimDate[Date]))"
           },
           {
             "name": "InternetCurrentQuarterSales",
-            "expression": "TOTALQTD([InternetTotalSales],'DimDate'[Date])"
+            "expression": "TOTALQTD([InternetTotalSales],DimDate[Date])"
           },
           {
             "name": "InternetPreviousQuarterSalesProportionToQTD",
             "expression": "[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
-          },
-          {
-            "name": "InternetCurrentQuarterSalesPerformance",
-            "expression": "IFERROR([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())"
           }
         ],
         "annotations": [
