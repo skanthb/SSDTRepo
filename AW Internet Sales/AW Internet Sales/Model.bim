@@ -1747,6 +1747,88 @@
             "expression": "COUNTROWS( DATESBETWEEN( 'DimDate'[Date], STARTOFQUARTER( LASTDATE('DimDate'[Date])), ENDOFQUARTER('DimDate'[Date])))"
           }
         ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "levels": [
+              {
+                "name": "CalendarYear",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "CalendarSemester",
+                "ordinal": 1,
+                "column": "CalendarSemester"
+              },
+              {
+                "name": "CalendarQuarter",
+                "ordinal": 2,
+                "column": "CalendarQuarter"
+              },
+              {
+                "name": "MonthCalendar",
+                "ordinal": 3,
+                "column": "MonthCalendar"
+              },
+              {
+                "name": "DayNumberOfMonth",
+                "ordinal": 4,
+                "column": "DayNumberOfMonth"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal",
+            "levels": [
+              {
+                "name": "FiscalYear",
+                "ordinal": 0,
+                "column": "FiscalYear"
+              },
+              {
+                "name": "FiscalSemester",
+                "ordinal": 1,
+                "column": "FiscalSemester"
+              },
+              {
+                "name": "FiscalQuarter",
+                "ordinal": 2,
+                "column": "FiscalQuarter"
+              },
+              {
+                "name": "MonthCalendar",
+                "ordinal": 3,
+                "column": "MonthCalendar"
+              },
+              {
+                "name": "DayNumberOfMonth",
+                "ordinal": 4,
+                "column": "DayNumberOfMonth"
+              }
+            ]
+          },
+          {
+            "name": "ProductionCalendar",
+            "levels": [
+              {
+                "name": "CalendarYear",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "WeekNumberOfYear",
+                "ordinal": 1,
+                "column": "WeekNumberOfYear"
+              },
+              {
+                "name": "DayNumberOfWeek",
+                "ordinal": 2,
+                "column": "DayNumberOfWeek"
+              }
+            ]
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -3545,6 +3627,33 @@
             ]
           }
         ],
+        "hierarchies": [
+          {
+            "name": "Category",
+            "levels": [
+              {
+                "name": "Category",
+                "ordinal": 0,
+                "column": "ProductCategoryName"
+              },
+              {
+                "name": "Subcategory",
+                "ordinal": 1,
+                "column": "ProsuctSubcategoryName"
+              },
+              {
+                "name": "Model",
+                "ordinal": 2,
+                "column": "ModelName"
+              },
+              {
+                "name": "Product",
+                "ordinal": 3,
+                "column": "EnglishProductName"
+              }
+            ]
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -5071,476 +5180,340 @@
         ],
         "partitions": [
           {
-            "name": "FactInternetSales",
-            "dataView": "full",
+            "name": "FactInternetSales2010",
             "source": {
-              "query": " SELECT [dbo].[FactInternetSales].[ProductKey],[dbo].[FactInternetSales].[CustomerKey],[dbo].[FactInternetSales].[PromotionKey],[dbo].[FactInternetSales].[CurrencyKey],[dbo].[FactInternetSales].[SalesTerritoryKey],[dbo].[FactInternetSales].[SalesOrderNumber],[dbo].[FactInternetSales].[SalesOrderLineNumber],[dbo].[FactInternetSales].[RevisionNumber],[dbo].[FactInternetSales].[OrderQuantity],[dbo].[FactInternetSales].[UnitPrice],[dbo].[FactInternetSales].[ExtendedAmount],[dbo].[FactInternetSales].[UnitPriceDiscountPct],[dbo].[FactInternetSales].[DiscountAmount],[dbo].[FactInternetSales].[ProductStandardCost],[dbo].[FactInternetSales].[TotalProductCost],[dbo].[FactInternetSales].[SalesAmount],[dbo].[FactInternetSales].[TaxAmt],[dbo].[FactInternetSales].[Freight],[dbo].[FactInternetSales].[CarrierTrackingNumber],[dbo].[FactInternetSales].[CustomerPONumber],[dbo].[FactInternetSales].[OrderDate],[dbo].[FactInternetSales].[DueDate],[dbo].[FactInternetSales].[ShipDate] FROM [dbo].[FactInternetSales] ",
+              "query": [
+                "SELECT   ",
+                "[dbo].[FactInternetSales].[ProductKey],  ",
+                "[dbo].[FactInternetSales].[CustomerKey],  ",
+                "[dbo].[FactInternetSales].[PromotionKey],  ",
+                "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                "[dbo].[FactInternetSales].[UnitPrice],  ",
+                "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                "[dbo].[FactInternetSales].[SalesAmount],  ",
+                "[dbo].[FactInternetSales].[TaxAmt],  ",
+                "[dbo].[FactInternetSales].[Freight],  ",
+                "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                "[dbo].[FactInternetSales].[OrderDate],  ",
+                "[dbo].[FactInternetSales].[DueDate],  ",
+                "[dbo].[FactInternetSales].[ShipDate]   ",
+                "FROM [dbo].[FactInternetSales]  ",
+                "WHERE (([OrderDate] >= N'2010-01-01 00:00:00') AND ([OrderDate] < N'2011-01-01 00:00:00'))"
+              ],
               "dataSource": "SqlServer 192.168.0.10 AdventureworksDW2016CTP3"
             },
             "annotations": [
               {
-                "name": "TableWidgetSerialization",
+                "name": "QueryEditorSerialization",
                 "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
-                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
-                  "  <ColumnSuggestedType />",
-                  "  <ColumnFormat />",
-                  "  <ColumnAccuracy />",
-                  "  <ColumnCurrencySymbol />",
-                  "  <ColumnPositivePattern />",
-                  "  <ColumnNegativePattern />",
-                  "  <ColumnWidths>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ProductKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>85</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>99</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DueDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>90</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ShipDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>91</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CustomerKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>94</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>PromotionKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>96</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CurrencyKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>92</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesTerritoryKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>115</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesOrderNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>120</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesOrderLineNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>139</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>RevisionNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>107</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderQuantity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>100</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>UnitPrice</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>72</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ExtendedAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>113</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>UnitPriceDiscountPct</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>128</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DiscountAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>108</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ProductStandardCost</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>133</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>TotalProductCost</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>113</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>92</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>TaxAmt</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>67</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Freight</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>64</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CarrierTrackingNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>140</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CustomerPONumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>127</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>81</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DueDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>72</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ShipDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>73</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnWidths>",
-                  "  <ColumnDisplayIndex>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ProductKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>0</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>1</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DueDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>2</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ShipDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>3</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CustomerKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>4</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>PromotionKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>5</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CurrencyKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>6</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesTerritoryKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>7</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesOrderNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>8</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesOrderLineNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>9</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>RevisionNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>10</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderQuantity</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>11</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>UnitPrice</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>12</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ExtendedAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>13</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>UnitPriceDiscountPct</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>14</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DiscountAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>15</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ProductStandardCost</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>16</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>TotalProductCost</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>17</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>SalesAmount</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>18</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>TaxAmt</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>19</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>Freight</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>20</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CarrierTrackingNumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>21</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>CustomerPONumber</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>22</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>23</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DueDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>24</int>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ShipDate</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <int>25</int>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnDisplayIndex>",
-                  "  <ColumnFrozen />",
-                  "  <ColumnChecked>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>OrderDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>false</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>DueDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>false</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "    <item>",
-                  "      <key>",
-                  "        <string>ShipDateKey</string>",
-                  "      </key>",
-                  "      <value>",
-                  "        <boolean>false</boolean>",
-                  "      </value>",
-                  "    </item>",
-                  "  </ColumnChecked>",
-                  "  <ColumnFilter />",
-                  "  <SelectionFilter />",
-                  "  <FilterParameters />",
-                  "  <IsSortDescending>false</IsSortDescending>",
-                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT   ",
+                  "[dbo].[FactInternetSales].[ProductKey],  ",
+                  "[dbo].[FactInternetSales].[CustomerKey],  ",
+                  "[dbo].[FactInternetSales].[PromotionKey],  ",
+                  "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                  "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                  "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                  "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                  "[dbo].[FactInternetSales].[UnitPrice],  ",
+                  "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                  "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                  "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                  "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                  "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                  "[dbo].[FactInternetSales].[SalesAmount],  ",
+                  "[dbo].[FactInternetSales].[TaxAmt],  ",
+                  "[dbo].[FactInternetSales].[Freight],  ",
+                  "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                  "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                  "[dbo].[FactInternetSales].[OrderDate],  ",
+                  "[dbo].[FactInternetSales].[DueDate],  ",
+                  "[dbo].[FactInternetSales].[ShipDate]   ",
+                  "FROM [dbo].[FactInternetSales]  ",
+                  "WHERE (([OrderDate] >= N'2010-01-01 00:00:00') AND ([OrderDate] < N'2011-01-01 00:00:00'))</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales2011",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT   ",
+                "[dbo].[FactInternetSales].[ProductKey],  ",
+                "[dbo].[FactInternetSales].[CustomerKey],  ",
+                "[dbo].[FactInternetSales].[PromotionKey],  ",
+                "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                "[dbo].[FactInternetSales].[UnitPrice],  ",
+                "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                "[dbo].[FactInternetSales].[SalesAmount],  ",
+                "[dbo].[FactInternetSales].[TaxAmt],  ",
+                "[dbo].[FactInternetSales].[Freight],  ",
+                "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                "[dbo].[FactInternetSales].[OrderDate],  ",
+                "[dbo].[FactInternetSales].[DueDate],  ",
+                "[dbo].[FactInternetSales].[ShipDate]   ",
+                "FROM [dbo].[FactInternetSales]  ",
+                "WHERE (([OrderDate] >= N'2011-01-01 00:00:00') AND ([OrderDate] < N'2012-01-01 00:00:00'))"
+              ],
+              "dataSource": "SqlServer 192.168.0.10 AdventureworksDW2016CTP3"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT   ",
+                  "[dbo].[FactInternetSales].[ProductKey],  ",
+                  "[dbo].[FactInternetSales].[CustomerKey],  ",
+                  "[dbo].[FactInternetSales].[PromotionKey],  ",
+                  "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                  "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                  "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                  "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                  "[dbo].[FactInternetSales].[UnitPrice],  ",
+                  "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                  "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                  "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                  "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                  "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                  "[dbo].[FactInternetSales].[SalesAmount],  ",
+                  "[dbo].[FactInternetSales].[TaxAmt],  ",
+                  "[dbo].[FactInternetSales].[Freight],  ",
+                  "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                  "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                  "[dbo].[FactInternetSales].[OrderDate],  ",
+                  "[dbo].[FactInternetSales].[DueDate],  ",
+                  "[dbo].[FactInternetSales].[ShipDate]   ",
+                  "FROM [dbo].[FactInternetSales]  ",
+                  "WHERE (([OrderDate] >= N'2011-01-01 00:00:00') AND ([OrderDate] < N'2012-01-01 00:00:00'))</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales2012",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT   ",
+                "[dbo].[FactInternetSales].[ProductKey],  ",
+                "[dbo].[FactInternetSales].[CustomerKey],  ",
+                "[dbo].[FactInternetSales].[PromotionKey],  ",
+                "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                "[dbo].[FactInternetSales].[UnitPrice],  ",
+                "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                "[dbo].[FactInternetSales].[SalesAmount],  ",
+                "[dbo].[FactInternetSales].[TaxAmt],  ",
+                "[dbo].[FactInternetSales].[Freight],  ",
+                "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                "[dbo].[FactInternetSales].[OrderDate],  ",
+                "[dbo].[FactInternetSales].[DueDate],  ",
+                "[dbo].[FactInternetSales].[ShipDate]   ",
+                "FROM [dbo].[FactInternetSales]  ",
+                "WHERE (([OrderDate] >= N'2012-01-01 00:00:00') AND ([OrderDate] < N'2013-01-01 00:00:00'))"
+              ],
+              "dataSource": "SqlServer 192.168.0.10 AdventureworksDW2016CTP3"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT   ",
+                  "[dbo].[FactInternetSales].[ProductKey],  ",
+                  "[dbo].[FactInternetSales].[CustomerKey],  ",
+                  "[dbo].[FactInternetSales].[PromotionKey],  ",
+                  "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                  "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                  "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                  "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                  "[dbo].[FactInternetSales].[UnitPrice],  ",
+                  "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                  "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                  "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                  "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                  "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                  "[dbo].[FactInternetSales].[SalesAmount],  ",
+                  "[dbo].[FactInternetSales].[TaxAmt],  ",
+                  "[dbo].[FactInternetSales].[Freight],  ",
+                  "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                  "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                  "[dbo].[FactInternetSales].[OrderDate],  ",
+                  "[dbo].[FactInternetSales].[DueDate],  ",
+                  "[dbo].[FactInternetSales].[ShipDate]   ",
+                  "FROM [dbo].[FactInternetSales]  ",
+                  "WHERE (([OrderDate] >= N'2012-01-01 00:00:00') AND ([OrderDate] < N'2013-01-01 00:00:00'))</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales2013",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT   ",
+                "[dbo].[FactInternetSales].[ProductKey],  ",
+                "[dbo].[FactInternetSales].[CustomerKey],  ",
+                "[dbo].[FactInternetSales].[PromotionKey],  ",
+                "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                "[dbo].[FactInternetSales].[UnitPrice],  ",
+                "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                "[dbo].[FactInternetSales].[SalesAmount],  ",
+                "[dbo].[FactInternetSales].[TaxAmt],  ",
+                "[dbo].[FactInternetSales].[Freight],  ",
+                "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                "[dbo].[FactInternetSales].[OrderDate],  ",
+                "[dbo].[FactInternetSales].[DueDate],  ",
+                "[dbo].[FactInternetSales].[ShipDate]   ",
+                "FROM [dbo].[FactInternetSales]  ",
+                "WHERE (([OrderDate] >= N'2013-01-01 00:00:00') AND ([OrderDate] < N'2014-01-01 00:00:00'))"
+              ],
+              "dataSource": "SqlServer 192.168.0.10 AdventureworksDW2016CTP3"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT   ",
+                  "[dbo].[FactInternetSales].[ProductKey],  ",
+                  "[dbo].[FactInternetSales].[CustomerKey],  ",
+                  "[dbo].[FactInternetSales].[PromotionKey],  ",
+                  "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                  "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                  "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                  "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                  "[dbo].[FactInternetSales].[UnitPrice],  ",
+                  "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                  "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                  "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                  "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                  "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                  "[dbo].[FactInternetSales].[SalesAmount],  ",
+                  "[dbo].[FactInternetSales].[TaxAmt],  ",
+                  "[dbo].[FactInternetSales].[Freight],  ",
+                  "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                  "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                  "[dbo].[FactInternetSales].[OrderDate],  ",
+                  "[dbo].[FactInternetSales].[DueDate],  ",
+                  "[dbo].[FactInternetSales].[ShipDate]   ",
+                  "FROM [dbo].[FactInternetSales]  ",
+                  "WHERE (([OrderDate] >= N'2013-01-01 00:00:00') AND ([OrderDate] < N'2014-01-01 00:00:00'))</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales2014",
+            "mode": "import",
+            "source": {
+              "query": [
+                "SELECT   ",
+                "[dbo].[FactInternetSales].[ProductKey],  ",
+                "[dbo].[FactInternetSales].[CustomerKey],  ",
+                "[dbo].[FactInternetSales].[PromotionKey],  ",
+                "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                "[dbo].[FactInternetSales].[UnitPrice],  ",
+                "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                "[dbo].[FactInternetSales].[SalesAmount],  ",
+                "[dbo].[FactInternetSales].[TaxAmt],  ",
+                "[dbo].[FactInternetSales].[Freight],  ",
+                "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                "[dbo].[FactInternetSales].[OrderDate],  ",
+                "[dbo].[FactInternetSales].[DueDate],  ",
+                "[dbo].[FactInternetSales].[ShipDate]   ",
+                "FROM [dbo].[FactInternetSales]  ",
+                "WHERE (([OrderDate] >= N'2014-01-01 00:00:00') AND ([OrderDate] < N'2015-01-01 00:00:00'))"
+              ],
+              "dataSource": "SqlServer 192.168.0.10 AdventureworksDW2016CTP3"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT   ",
+                  "[dbo].[FactInternetSales].[ProductKey],  ",
+                  "[dbo].[FactInternetSales].[CustomerKey],  ",
+                  "[dbo].[FactInternetSales].[PromotionKey],  ",
+                  "[dbo].[FactInternetSales].[CurrencyKey],  ",
+                  "[dbo].[FactInternetSales].[SalesTerritoryKey],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderNumber],  ",
+                  "[dbo].[FactInternetSales].[SalesOrderLineNumber],  ",
+                  "[dbo].[FactInternetSales].[RevisionNumber],  ",
+                  "[dbo].[FactInternetSales].[OrderQuantity],  ",
+                  "[dbo].[FactInternetSales].[UnitPrice],  ",
+                  "[dbo].[FactInternetSales].[ExtendedAmount],  ",
+                  "[dbo].[FactInternetSales].[UnitPriceDiscountPct],  ",
+                  "[dbo].[FactInternetSales].[DiscountAmount],  ",
+                  "[dbo].[FactInternetSales].[ProductStandardCost],  ",
+                  "[dbo].[FactInternetSales].[TotalProductCost],  ",
+                  "[dbo].[FactInternetSales].[SalesAmount],  ",
+                  "[dbo].[FactInternetSales].[TaxAmt],  ",
+                  "[dbo].[FactInternetSales].[Freight],  ",
+                  "[dbo].[FactInternetSales].[CarrierTrackingNumber],  ",
+                  "[dbo].[FactInternetSales].[CustomerPONumber],  ",
+                  "[dbo].[FactInternetSales].[OrderDate],  ",
+                  "[dbo].[FactInternetSales].[DueDate],  ",
+                  "[dbo].[FactInternetSales].[ShipDate]   ",
+                  "FROM [dbo].[FactInternetSales]  ",
+                  "WHERE (([OrderDate] >= N'2014-01-01 00:00:00') AND ([OrderDate] < N'2015-01-01 00:00:00'))</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
                 ]
               }
             ]
@@ -5644,7 +5617,97 @@
           },
           {
             "name": "InternetCurrentQuarterSalesPerformance",
-            "expression": "IFERROR([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())"
+            "expression": "IFERROR([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.1",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='FactInternetSales'[InternetCurrentQuarterSalesPerformance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<1,-1,",
+                "\t                If(x<1.07,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "1"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.07"
+                }
+              ]
+            }
+          },
+          {
+            "name": "InternetCurrentQuarterMarginPerformance",
+            "expression": "IF([InternetPreviousQuarterMarginProportionToQTD]<>0,([InternetCurrentQuarterMargin]-[InternetPreviousQuarterMarginProportionToQTD])/[InternetPreviousQuarterMarginProportionToQTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.25",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='FactInternetSales'[InternetCurrentQuarterMarginPerformance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.03,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.03"
+                }
+              ]
+            }
           }
         ],
         "annotations": [
@@ -6186,6 +6249,385 @@
         "toTable": "DimDate",
         "toColumn": "Date",
         "isActive": false
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "Internet Sales",
+        "tables": [
+          {
+            "name": "DimDate",
+            "columns": [
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarSemester"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayNumberOfMonth"
+              },
+              {
+                "name": "DayNumberOfWeek"
+              },
+              {
+                "name": "DayNumberOfYear"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "EnglishDayNameOfWeek"
+              },
+              {
+                "name": "EnglishMonthName"
+              },
+              {
+                "name": "FiscalQuarter"
+              },
+              {
+                "name": "FiscalSemester"
+              },
+              {
+                "name": "FiscalYear"
+              },
+              {
+                "name": "MonthCalendar"
+              },
+              {
+                "name": "MonthNumberOfYear"
+              },
+              {
+                "name": "WeekNumberOfYear"
+              }
+            ],
+            "measures": [
+              {
+                "name": "DaysCurrentQuarterToDate"
+              },
+              {
+                "name": "DaysInCurrentQuarter"
+              }
+            ]
+          },
+          {
+            "name": "DimGeography",
+            "columns": [
+              {
+                "name": "City"
+              },
+              {
+                "name": "CountryRegionCode"
+              },
+              {
+                "name": "EnglishCountryRegionName"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "PostalCode"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "StateProvinceCode"
+              },
+              {
+                "name": "StateProvinceName"
+              }
+            ]
+          },
+          {
+            "name": "DimProduct",
+            "columns": [
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductCategoryName"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ProsuctSubcategoryName"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ]
+          },
+          {
+            "name": "DimProductCategory",
+            "columns": [
+              {
+                "name": "EnglishProductCategoryName"
+              },
+              {
+                "name": "ProductCategoryAlternateKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "DimProductSubcategory",
+            "columns": [
+              {
+                "name": "EnglishProductSubcategoryName"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "ProductSubcategoryAlternateKey"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales",
+            "columns": [
+              {
+                "name": "CarrierTrackingNumber"
+              },
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "CustomerPONumber"
+              },
+              {
+                "name": "DiscountAmount"
+              },
+              {
+                "name": "DueDate"
+              },
+              {
+                "name": "ExtendedAmount"
+              },
+              {
+                "name": "Freight"
+              },
+              {
+                "name": "Margin"
+              },
+              {
+                "name": "OrderDate"
+              },
+              {
+                "name": "OrderQuantity"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductStandardCost"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "RevisionNumber"
+              },
+              {
+                "name": "SalesAmount"
+              },
+              {
+                "name": "SalesOrderLineNumber"
+              },
+              {
+                "name": "SalesOrderNumber"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "ShipDate"
+              },
+              {
+                "name": "TaxAmt"
+              },
+              {
+                "name": "TotalProductCost"
+              },
+              {
+                "name": "UnitPrice"
+              },
+              {
+                "name": "UnitPriceDiscountPct"
+              }
+            ],
+            "measures": [
+              {
+                "name": "InternetCurrentQuarterMargin"
+              },
+              {
+                "name": "InternetCurrentQuarterSales"
+              },
+              {
+                "name": "InternetDistinctCountSalesOrder"
+              },
+              {
+                "name": "InternetOrderLinesCount"
+              },
+              {
+                "name": "InternetPreviousQuarterMargin"
+              },
+              {
+                "name": "InternetPreviousQuarterMarginProportionToQTD"
+              },
+              {
+                "name": "InternetPreviousQuarterSales"
+              },
+              {
+                "name": "InternetPreviousQuarterSalesProportionToQTD"
+              },
+              {
+                "name": "InternetTotalDiscountAmount"
+              },
+              {
+                "name": "InternetTotalFreight"
+              },
+              {
+                "name": "InternetTotalMargin"
+              },
+              {
+                "name": "InternetTotalProductCost"
+              },
+              {
+                "name": "InternetTotalSales"
+              },
+              {
+                "name": "InternetTotalTaxAmt"
+              },
+              {
+                "name": "InternetTotalUnits"
+              },
+              {
+                "name": "InternetCurrentQuarterMarginPerformance"
+              },
+              {
+                "name": "InternetCurrentQuarterSalesPerformance"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Sales Manager",
+        "modelPermission": "read"
+      },
+      {
+        "name": "Sales Analyst US",
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "DimGeography",
+            "filterExpression": "DimGeography[CountryRegionCode] = \"US\""
+          }
+        ]
+      },
+      {
+        "name": "Administrator",
+        "modelPermission": "administrator",
+        "members": [
+          {
+            "memberName": "sri",
+            "memberId": "S-1-5-21-2641039258-1635949397-421555053-1001"
+          },
+          {
+            "memberName": "srikanth",
+            "memberId": "S-1-5-21-2641039258-1635949397-421555053-1003"
+          },
+          {
+            "memberName": "skanthb@gmail.com",
+            "memberId": "skanthb@gmail.com",
+            "identityProvider": "AzureAD"
+          }
+        ]
       }
     ],
     "annotations": [
